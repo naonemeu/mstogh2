@@ -10,6 +10,5 @@ Drop your mid file from moonscraper in the same folder the files are. Rename it 
 You can open "run.bat". This will give you some choices of what you want in your mid file or not, after this it will generate "notes_gh2.mid" that will contain all the animations converted. There is a bug that the mid is not "formatted" correctly, so you need to export it in reaper first to get all the things working in game.
 
 # How to chart animations?
-(coming soon)
-for now, I have this doc:
+coming soon, for now, I have this doc:
 https://docs.google.com/document/d/16MzEoC7JfNOcvqn8wyBBf4oiipJbx0h_/edit?usp=sharing&ouid=116981090282877738182&rtpof=true&sd=true
