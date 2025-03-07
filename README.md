@@ -1,2 +1,2 @@
 # msTOgh2
-MID Tool to convert Moonscraper RB2 Export to GH2 MID, with animations, lights and fretmapping
+MID tool using Python and Mido to convert Moonscraper RB2 exports to GH2 MID, adding animations, lights, and fret mapping
