@@ -6,6 +6,13 @@ Changse to them main version
 
 Made with much gambiarra
 
+# Extra instructions
+Place a single .chart file with any name.
+
+Run:
+* run_auto_keys.bat - if the song is instrumental / has keys animations
+* run_auto_singer.bat - if the song has vocal animations
+
 ***
 # mstogh2
 MID tool using Python and Mido to convert Moonscraper RB2 export to GH2 MID, adding animations, lights, and fret mapping
