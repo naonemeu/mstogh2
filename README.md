@@ -1,4 +1,13 @@
-# msTOgh2
+# mstogh2 - "Naonemeu Version"
+Changse to them main version
+* Converts "directly" from .chart, using raynebc's chart2mid and adding missing stuff with "adapt_chart2mid.py"
+* Changed lots of "if msg.note == [note]" because chart2mid handles it differently from Moonscraper **(why?!?!)**
+* Expanded fretmapping to 18 notes to be used with a "fremapping helper" tool soon(tm).
+
+Made with much gambiarra
+
+***
+# mstogh2
 MID tool using Python and Mido to convert Moonscraper RB2 export to GH2 MID, adding animations, lights, and fret mapping
 
 This supports most of gh2 animations, lights, keyframes and fret mapping. Still doesn't have face-off sections and fret mapping for bass.
