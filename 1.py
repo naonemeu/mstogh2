@@ -32,15 +32,17 @@ for track in midi_file.tracks:
             cumulative_time += msg.time
             if msg.type in ['note_on', 'note_off']:
                 # Modify the notes and append them to TRIGGERS
-                if msg.note in [96, 97, 98]:
+                if msg.note in [96, 97, 98]: #Keyframes: KEYS EXPERT G R Y -> note 48-50 in TRIGGERS (single notes)
                     modified_msg = Message(type=msg.type, note=msg.note - 48, velocity=msg.velocity, time=cumulative_time)
                     triggers_track.append(modified_msg)
                     cumulative_time = 0  # Reset time after each note is added
-                elif msg.note == 99:
+                elif msg.note == 99:  #World Venue: KEYS EXPERT B -> note 52 in TRIGGERS (Either single note or sustain works)
                     modified_msg = Message(type=msg.type, note=msg.note - 47, velocity=msg.velocity, time=cumulative_time)
                     triggers_track.append(modified_msg)
                     cumulative_time = 0  # Reset time after each note is added
-
+                    
+                    
+    #sorry for the extra gambiarra
     elif track.name == 'PART DRUMS':
         # Process PART DRUMS track
         cumulative_time = 0
@@ -48,12 +50,12 @@ for track in midi_file.tracks:
             cumulative_time += msg.time
             if msg.type in ['note_on', 'note_off']:
                 # Modify the notes and append them to BAND DRUMS
-                if msg.note == 96:
-                    modified_msg = Message(type=msg.type, note=msg.note - 60, velocity=msg.velocity, time=cumulative_time)
+                if msg.note == 98: #kick
+                    modified_msg = Message(type=msg.type, note=36, velocity=msg.velocity, time=cumulative_time)
                     band_drums_track.append(modified_msg)
                     cumulative_time = 0  # Reset time after each note is added
-                elif msg.note == 100:
-                    modified_msg = Message(type=msg.type, note=msg.note - 63, velocity=msg.velocity, time=cumulative_time)
+                elif msg.note == 96: #cymbal
+                    modified_msg = Message(type=msg.type, note=37, velocity=msg.velocity, time=cumulative_time)
                     band_drums_track.append(modified_msg)
                     cumulative_time = 0  # Reset time after each note is added
             else:
@@ -62,6 +64,28 @@ for track in midi_file.tracks:
                     # Copy text events to the new track
                     band_drums_track.append(msg.copy(time=cumulative_time))
                     cumulative_time = 0
+
+    # elif track.name == 'PART DRUMS':
+        # # Process PART DRUMS track
+        # cumulative_time = 0
+        # for msg in track:
+            # cumulative_time += msg.time
+            # if msg.type in ['note_on', 'note_off']:
+                # # Modify the notes and append them to BAND DRUMS
+                # if msg.note == 96: #kick
+                    # modified_msg = Message(type=msg.type, note=msg.note - 60, velocity=msg.velocity, time=cumulative_time) #36
+                    # band_drums_track.append(modified_msg)
+                    # cumulative_time = 0  # Reset time after each note is added
+                # elif msg.note == 100: #cymbal
+                    # modified_msg = Message(type=msg.type, note=msg.note - 63, velocity=msg.velocity, time=cumulative_time) #37
+                    # band_drums_track.append(modified_msg)
+                    # cumulative_time = 0  # Reset time after each note is added
+            # else:
+                # # Verify if the event is a track name
+                # if msg.type != 'track_name':
+                    # # Copy text events to the new track
+                    # band_drums_track.append(msg.copy(time=cumulative_time))
+                    # cumulative_time = 0
                 
     elif track.name == 'PART BASS':
         # Process PART BASS track
